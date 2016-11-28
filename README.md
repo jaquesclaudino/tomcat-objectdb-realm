@@ -1,4 +1,15 @@
-# tomcat-objectdb-realm
+- copy lib/objectdb-jee.jar to apache-tomee-plus-7.0.2/lib
 
-server.xml:
-    <Realm className="com.nexten.realm.ObjectDBRealm" resourceName="my-realm" />
+- copy lib/tomcat-objectdb-realm-0.0.1.jar to apache-tomee-plus-7.0.2/lib
+
+- edit apache-tomee-plus-7.0.2/conf/server.xml:
+    <Realm className="org.apache.catalina.realm.LockOutRealm 
+        ...
+        <Realm className="com.objectdb.realm.ObjectDBRealm" 
+             resourceName="arq-realm" 
+             url="$objectdb/db/app.odb"
+             userEntity="User" 
+             userNameColumn="login" 
+             passwordColumn="password"
+             groupNameColumn="groupName"/>
+        </Realm>
