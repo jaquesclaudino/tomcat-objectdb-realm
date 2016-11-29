@@ -6,10 +6,9 @@
     <Realm className="org.apache.catalina.realm.LockOutRealm 
         ...
         <Realm className="com.objectdb.realm.ObjectDBRealm" 
-             resourceName="arq-realm" 
+             resourceName="app-realm" 
              url="$objectdb/db/app.odb"
              userEntity="User" 
              userNameColumn="login" 
              passwordColumn="password"
              groupNameColumn="groupName"/>
-        </Realm>
