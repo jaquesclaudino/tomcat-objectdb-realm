@@ -1,9 +1,7 @@
 package com.objectdb.realm;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -22,7 +20,7 @@ import org.apache.catalina.realm.RealmBase;
 public class ObjectDBRealm extends RealmBase {
 
     private static final Logger LOG = Logger.getLogger(ObjectDBRealm.class.getName());
-
+    
     private String url = "url";
     private String userEntity = "User";
     private String userNameColumn = "login";
@@ -46,6 +44,7 @@ public class ObjectDBRealm extends RealmBase {
 
     @Override
     public Principal authenticate(String user, String password) {
+        LOG.log(Level.INFO, "Url: {0}", url);
         LOG.log(Level.INFO, "Login: {0}", user);
         if (user == null || password == null) {
             return null;
